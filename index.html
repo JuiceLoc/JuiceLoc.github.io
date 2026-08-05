@@ -91,7 +91,7 @@
             </ul>
         </section>
 
-        <!-- Sección Proyectos con Luces, Scanlines y Placeholders -->
+        <!-- Sección Proyectos -->
         <section id="work" class="work">
             <p class="eyebrow">// selected work</p>
 
@@ -134,7 +134,7 @@
                 </div>
             </article>
 
-            <!-- Placeholder Proyectos 2 y 3 -->
+            <!-- Placeholders -->
             <article class="project">
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
@@ -182,22 +182,19 @@
             </article>
         </section>
 
-        <!-- Footer / Contacto con diseño de correo minimalista -->
+        <!-- Footer / Contacto con Botón de Acción Principal Neón (Opción 2) -->
         <footer id="contact" class="contact">
             <p class="eyebrow">// get in touch</p>
             <h2>Let's build something.</h2>
 
-            <!-- Correo Minimalista con Pop-up al Copiar -->
-            <div class="email-container">
-                <a href="mailto:alejandro.j.bejarano.999@gmail.com" id="emailText" class="email-link">
-                    alejandro.j.bejarano.999@gmail.com
-                </a>
-                <button id="copyBtn" class="copy-icon-btn" onclick="copyEmail()" title="Copy email address" aria-label="Copy email address">
-                    <svg class="copy-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            <!-- Botón CTA Neón principal para copiar correo -->
+            <div class="email-cta-wrapper">
+                <button id="ctaEmailBtn" class="cta-email-btn" onclick="copyEmailCTA()">
+                    <svg class="cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <span id="copyToast" class="copy-toast">Copied!</span>
+                    <span id="ctaBtnText">COPY EMAIL ADDRESS</span>
                 </button>
             </div>
 

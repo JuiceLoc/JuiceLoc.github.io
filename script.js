@@ -21,15 +21,19 @@ window.addEventListener('load', () => {
     });
 });
 
-// Lógica de copiar correo con feedback emergente
-function copyEmail() {
-    const email = document.getElementById('emailText').innerText;
-    const toast = document.getElementById('copyToast');
+// Función para copiar correo desde el botón CTA Neón
+function copyEmailCTA() {
+    const email = 'alejandro.j.bejarano.999@gmail.com';
+    const btn = document.getElementById('ctaEmailBtn');
+    const btnText = document.getElementById('ctaBtnText');
 
     navigator.clipboard.writeText(email).then(() => {
-        toast.classList.add('show');
+        btn.classList.add('copied');
+        btnText.innerText = 'EMAIL COPIED!';
+
         setTimeout(() => {
-            toast.classList.remove('show');
+            btn.classList.remove('copied');
+            btnText.innerText = 'COPY EMAIL ADDRESS';
         }, 2000);
     }).catch(err => {
         console.error('Failed to copy: ', err);

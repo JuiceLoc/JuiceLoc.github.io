@@ -624,76 +624,57 @@ a {
     text-shadow: 0 0 20px rgba(255, 246, 233, 0.2);
 }
 
-/* Email Display Minimalista */
-.email-container {
-    display: inline-flex;
-    align-items: center;
+/* Option 2: Main Neon Action Button */
+.email-cta-wrapper {
+    display: flex;
     justify-content: center;
-    gap: 0.8rem;
-    position: relative;
     margin-bottom: 3.5rem;
 }
 
-.email-link {
-    font-family: var(--font-mono);
-    font-size: clamp(0.95rem, 2vw, 1.25rem);
-    color: var(--warm-white);
-    letter-spacing: 0.02em;
-    padding-bottom: 4px;
-    border-bottom: 1px dashed var(--ocean-neon);
-    transition: all 0.3s ease;
-}
-
-.email-link:hover {
-    color: var(--peach-sunset);
-    border-bottom-color: var(--peach-sunset);
-    text-shadow: 0 0 12px rgba(255, 155, 115, 0.6);
-}
-
-/* Botón de copiar icono discreto */
-.copy-icon-btn {
+.cta-email-btn {
     position: relative;
-    background: transparent;
-    border: 1px solid var(--warm-white-faint);
-    color: var(--warm-white-dim);
-    padding: 0.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    transition: all 0.25s ease;
-}
-
-.copy-icon-btn:hover {
-    border-color: var(--ocean-neon);
-    color: var(--ocean-neon);
-    background: rgba(55, 213, 232, 0.1);
-    box-shadow: 0 0 12px rgba(55, 213, 232, 0.3);
-}
-
-/* Pop-up "Copied!" minimalista */
-.copy-toast {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
+    gap: 0.75rem;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    letter-spacing: 0.12em;
+    color: var(--ocean-neon);
+    background: rgba(15, 42, 63, 0.4);
+    border: 1px solid var(--ocean-neon);
+    padding: 1.1rem 2.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 15px rgba(55, 213, 232, 0.15);
+}
+
+.cta-email-btn:hover {
     color: var(--deep-ocean);
     background: var(--ocean-neon);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-weight: bold;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 0 10px rgba(55, 213, 232, 0.5);
+    box-shadow: 0 0 30px rgba(55, 213, 232, 0.6);
+    transform: translateY(-3px);
 }
 
-.copy-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+.cta-email-btn:active {
+    transform: translateY(-1px);
+}
+
+.cta-icon {
+    transition: transform 0.3s ease;
+}
+
+.cta-email-btn:hover .cta-icon {
+    transform: scale(1.1);
+}
+
+/* Estado de éxito cuando se copia */
+.cta-email-btn.copied {
+    border-color: #37E8A6;
+    background: #37E8A6;
+    color: var(--deep-ocean);
+    box-shadow: 0 0 30px rgba(55, 232, 166, 0.7);
 }
 
 /* Social Links */
