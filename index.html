@@ -19,7 +19,11 @@
     <div class="ambient-light light-pink"></div>
 
     <header class="topbar">
-        <span class="logo">A.BEJARANO</span>
+        <!-- Indicador Neón "Available for Work" -->
+        <div class="logo-wrapper">
+            <span class="status-dot" title="Available for work"></span>
+            <span class="logo">A.BEJARANO</span>
+        </div>
         <nav>
             <a href="#about">About</a>
             <a href="#stack">Stack</a>
@@ -46,7 +50,7 @@
                 </a>
             </div>
 
-            <!-- Columna Derecha: About Me (Posición Original) -->
+            <!-- Columna Derecha: About Me -->
             <div class="hero-about" id="about">
                 <p class="eyebrow">// about me</p>
                 <p class="about-text">
@@ -72,13 +76,13 @@
     <!-- Contenido en primer plano -->
     <main class="main-content">
 
-        <!-- Sección Stack Limpia -->
+        <!-- Sección Stack Limpia (Sin guion en Object Oriented Programming) -->
         <section id="stack" class="stack">
             <p class="eyebrow">// tech stack</p>
             <ul class="tag-grid">
                 <li class="tag"><span class="tag-prefix">></span> Unity</li>
                 <li class="tag"><span class="tag-prefix">></span> C#</li>
-                <li class="tag"><span class="tag-prefix">></span> Object-Oriented Programming</li>
+                <li class="tag"><span class="tag-prefix">></span> Object Oriented Programming</li>
                 <li class="tag"><span class="tag-prefix">></span> Rigidbody & Physics</li>
                 <li class="tag"><span class="tag-prefix">></span> Procedural Generation</li>
                 <li class="tag"><span class="tag-prefix">></span> Gameplay Systems</li>
@@ -87,7 +91,7 @@
             </ul>
         </section>
 
-        <!-- Sección Proyectos con Luces y Scanlines -->
+        <!-- Sección Proyectos con Luces, Scanlines y Placeholders -->
         <section id="work" class="work">
             <p class="eyebrow">// selected work</p>
 
@@ -130,10 +134,12 @@
                 </div>
             </article>
 
+            <!-- Placeholder Proyectos 2 y 3 -->
             <article class="project">
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
-                    <div class="project-media">
+                    <div class="project-media project-placeholder">
+                        <span class="placeholder-text">// IN DEVELOPMENT</span>
                         <div class="scanlines"></div>
                     </div>
                 </div>
@@ -155,7 +161,8 @@
             <article class="project">
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
-                    <div class="project-media">
+                    <div class="project-media project-placeholder">
+                        <span class="placeholder-text">// IN DEVELOPMENT</span>
                         <div class="scanlines"></div>
                     </div>
                 </div>
@@ -175,14 +182,36 @@
             </article>
         </section>
 
+        <!-- Footer / Contacto con Botón Copiar Email e Iconos SVG -->
         <footer id="contact" class="contact">
             <p class="eyebrow">// get in touch</p>
             <h2>Let's build something.</h2>
-            <div class="links">
-                <a href="mailto:alejandro.j.bejarano.999@gmail.com" class="email-link">alejandro.j.bejarano.999@gmail.com</a>
-                <a href="https://github.com/JuiceLoc" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/alejandro-bejarano-27122441a/" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://juiceloc.itch.io/" target="_blank" rel="noopener">itch.io</a>
+
+            <!-- Botón Copiar Email -->
+            <div class="email-wrapper">
+                <button id="copyEmailBtn" class="email-btn" onclick="copyEmail()">
+                    <span id="emailText">alejandro.j.bejarano.999@gmail.com</span>
+                    <span class="copy-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span id="copyTooltip">Copy</span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Redes Sociales con Iconos SVG directos -->
+            <div class="social-links">
+                <a href="https://github.com/JuiceLoc" target="_blank" rel="noopener" class="social-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/alejandro-bejarano-27122441a/" target="_blank" rel="noopener" class="social-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://juiceloc.itch.io/" target="_blank" rel="noopener" class="social-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.36 2.5C2.61 2.5 2 3.11 2 3.86v.28c0 1.83 1.34 3.36 3.11 3.56.24 1.73.66 3.44 1.25 5.09L4.47 16.5c-.38.45-.44 1.09-.16 1.6.28.51.84.8 1.42.8h12.54c.58 0 1.14-.29 1.42-.8.28-.51.22-1.15-.16-1.6l-1.89-3.71c.59-1.65 1.01-3.36 1.25-5.09C20.66 7.5 22 5.97 22 4.14v-.28c0-.75-.61-1.36-1.36-1.36H3.36zM12 13.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+                    <span>itch.io</span>
+                </a>
             </div>
         </footer>
 

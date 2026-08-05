@@ -98,6 +98,27 @@ a {
     background: linear-gradient(to bottom, rgba(8, 24, 38, 0.85), transparent);
 }
 
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--ocean-neon);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--ocean-neon);
+    animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.25); box-shadow: 0 0 12px var(--ocean-neon); }
+    100% { opacity: 0.3; transform: scale(0.8); }
+}
+
 .logo {
     font-family: var(--font-mono);
     font-size: 0.85rem;
@@ -112,11 +133,25 @@ a {
 }
 
 .topbar nav a {
+    position: relative;
     font-family: var(--font-mono);
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     color: var(--warm-white-dim);
+    padding-bottom: 4px;
     transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.topbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--peach-sunset);
+    box-shadow: 0 0 8px var(--peach-sunset);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .topbar nav a:hover,
@@ -125,7 +160,12 @@ a {
     text-shadow: 0 0 12px rgba(255, 155, 115, 0.6);
 }
 
-/* ---------- Hero (2 Columnas Original) ---------- */
+.topbar nav a:hover::after,
+.topbar nav a:focus-visible::after {
+    width: 100%;
+}
+
+/* ---------- Hero ---------- */
 .hero-pinned-wrapper {
     position: relative;
     width: 100%;
@@ -375,7 +415,7 @@ a {
     color: var(--peach-sunset);
 }
 
-/* ---------- Work / Projects (Con Luces & CRT Scanlines) ---------- */
+/* ---------- Work / Projects ---------- */
 .work {
     padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
     display: flex;
@@ -401,7 +441,6 @@ a {
     width: 100%;
 }
 
-/* Luz Trasera APAGADA por defecto */
 .poster-glow {
     position: absolute;
     inset: -12px;
@@ -414,7 +453,6 @@ a {
     z-index: 0;
 }
 
-/* Encendido neón en HOVER */
 .media-wrapper:hover .poster-glow {
     opacity: 0.75;
     transform: scale(1.02);
@@ -455,7 +493,6 @@ a {
     transition: opacity 0.35s ease;
 }
 
-/* Overlay CRT Scanlines sobre el Video */
 .scanlines {
     position: absolute;
     inset: 0;
@@ -475,6 +512,29 @@ a {
 
 .media-wrapper:hover .scanlines {
     opacity: 1;
+}
+
+.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(15, 42, 63, 0.8), var(--deep-ocean));
+}
+
+.placeholder-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ocean-neon);
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    text-shadow: 0 0 10px rgba(55, 213, 232, 0.4);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.media-wrapper:hover .placeholder-text {
+    opacity: 1;
+    color: var(--peach-sunset);
 }
 
 .project-links {
@@ -530,12 +590,18 @@ a {
 
 .project-tags span {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(55, 213, 232, 0.1);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(15, 42, 63, 0.5);
+    color: var(--warm-white-dim);
+    border: 1px solid var(--warm-white-faint);
+    transition: all 0.25s ease;
+}
+
+.project:hover .project-tags span {
+    border-color: rgba(55, 213, 232, 0.3);
     color: var(--ocean-neon);
-    border: 1px solid rgba(55, 213, 232, 0.2);
 }
 
 /* ---------- Contact / Footer ---------- */
@@ -558,29 +624,86 @@ a {
     text-shadow: 0 0 20px rgba(255, 246, 233, 0.2);
 }
 
-.contact .links {
+.email-wrapper {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.75rem;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
     margin-bottom: 2.5rem;
 }
 
-.contact .links a {
+.email-btn {
+    background: rgba(15, 42, 63, 0.4);
+    border: 1px solid var(--warm-white-faint);
     color: var(--warm-white-dim);
+    font-family: var(--font-mono);
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
     transition: all 0.25s ease;
 }
 
-.contact .links a:hover,
-.contact .links a:focus-visible {
-    color: var(--peach-sunset);
-    text-shadow: 0 0 10px rgba(255, 155, 115, 0.6);
+.email-btn:hover {
+    border-color: var(--peach-sunset);
+    color: var(--warm-white);
+    background: rgba(255, 155, 115, 0.08);
+    box-shadow: 0 0 20px rgba(255, 155, 115, 0.2);
 }
 
-.email-link {
-    letter-spacing: 0.02em;
+.copy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: var(--ocean-neon);
+    background: rgba(55, 213, 232, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+.email-btn:hover .copy-badge {
+    background: var(--ocean-neon);
+    color: var(--deep-ocean);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--warm-white-dim);
+    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    background: rgba(15, 42, 63, 0.3);
+    border: 1px solid var(--warm-white-faint);
+    transition: all 0.25s ease;
+}
+
+.social-btn svg {
+    transition: transform 0.25s ease;
+}
+
+.social-btn:hover {
+    color: var(--peach-sunset);
+    border-color: var(--peach-sunset);
+    background: rgba(255, 155, 115, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 155, 115, 0.25);
+}
+
+.social-btn:hover svg {
+    transform: scale(1.1);
 }
 
 /* ---------- Responsive ---------- */
