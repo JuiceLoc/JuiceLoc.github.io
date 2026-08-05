@@ -2,33 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Alejandro Bejarano | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Bejarano | Gameplay Programmer</title>
+    <meta name="description" content="Alejandro Bejarano — Gameplay Programmer portfolio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+    <div class="grain"></div>
+
+    <header class="topbar">
+        <span class="logo">A.BEJARANO</span>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#stack">Stack</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
     <section class="hero">
-
         <p class="greeting">HELLO,</p>
-
         <h1>
             I'M<br>
             ALEJANDRO<br>
             BEJARANO
         </h1>
-
         <h2>Gameplay Programmer</h2>
-
         <p class="tagline">
             And this is what I build.
         </p>
-
-        <a href="#" class="button">
-            Explore My Work ↓
+        <a href="#work" class="button">
+            Explore My Work <span class="arrow">↓</span>
         </a>
-
     </section>
+
+    <div class="horizon" aria-hidden="true">
+        <div class="sun"></div>
+    </div>
+
+    <section id="stack" class="stack">
+        <p class="eyebrow">// stack</p>
+        <ul class="tag-grid">
+            <li class="tag">Unreal Engine</li>
+            <li class="tag">Unity</li>
+            <li class="tag">C++</li>
+            <li class="tag">C#</li>
+            <li class="tag">Gameplay Ability System</li>
+            <li class="tag">AI Behavior Trees</li>
+            <li class="tag">Networking</li>
+            <li class="tag">Tools & Editor Scripting</li>
+        </ul>
+    </section>
+
+    <section id="work" class="work">
+        <p class="eyebrow">// selected work</p>
+
+        <article class="project">
+            <div class="project-media"></div>
+            <div class="project-info">
+                <h3>Project Name</h3>
+                <p class="role">Gameplay Programmer — Combat Systems</p>
+                <p class="desc">
+                    A short line on what this project is, what you built,
+                    and the problem it solved.
+                </p>
+                <div class="project-tags">
+                    <span>Unreal Engine</span>
+                    <span>C++</span>
+                    <span>Multiplayer</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="project-media"></div>
+            <div class="project-info">
+                <h3>Project Name</h3>
+                <p class="role">Gameplay Programmer — AI & Tools</p>
+                <p class="desc">
+                    A short line on what this project is, what you built,
+                    and the problem it solved.
+                </p>
+                <div class="project-tags">
+                    <span>Unity</span>
+                    <span>C#</span>
+                    <span>AI</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="project-media"></div>
+            <div class="project-info">
+                <h3>Project Name</h3>
+                <p class="role">Gameplay Programmer — Prototype</p>
+                <p class="desc">
+                    A short line on what this project is, what you built,
+                    and the problem it solved.
+                </p>
+                <div class="project-tags">
+                    <span>Game Jam</span>
+                    <span>C++</span>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <footer id="contact" class="contact">
+        <p class="eyebrow">// get in touch</p>
+        <h2>Let's build something.</h2>
+        <div class="links">
+            <a href="mailto:you@email.com">Email</a>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">itch.io</a>
+        </div>
+        <p class="fine-print">Ocean Drive, running on GitHub Pages.</p>
+    </footer>
 
 </body>
 </html>
