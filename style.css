@@ -176,31 +176,30 @@ a {
     margin: 3rem clamp(1.5rem, 8vw, 6rem) 5rem;
     background: linear-gradient(
         to right,
-        transparent,
-        var(--peach-sunset) 30%,
-        var(--ocean-neon) 70%,
-        transparent
+        var(--ocean-neon),
+        var(--peach-sunset) 32%,
+        var(--neon-pink) 50%,
+        var(--peach-sunset) 68%,
+        var(--ocean-neon)
     );
     box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
     animation: horizon-pulse 6s ease-in-out infinite;
 }
 
 .horizon::before {
-    /* atmospheric glow — the "sun" reimagined as soft light, not a hard dot */
+    /* the sunset itself — layered bands of sky color melting into the sea */
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(70vw, 900px);
-    height: 260px;
+    width: min(95vw, 1200px);
+    height: 480px;
     transform: translate(-50%, -50%);
-    background: radial-gradient(
-        ellipse 50% 100% at 50% 50%,
-        rgba(255, 155, 115, 0.22),
-        rgba(255, 79, 163, 0.1) 45%,
-        transparent 75%
-    );
-    filter: blur(10px);
+    background:
+        radial-gradient(ellipse 40% 100% at 50% 55%, rgba(255, 79, 163, 0.28), transparent 60%),
+        radial-gradient(ellipse 55% 100% at 50% 50%, rgba(255, 155, 115, 0.32), transparent 58%),
+        radial-gradient(ellipse 95% 100% at 50% 45%, rgba(55, 213, 232, 0.16), transparent 72%);
+    filter: blur(14px);
     pointer-events: none;
     z-index: -1;
     animation: glow-breathe 6s ease-in-out infinite;
@@ -208,11 +207,15 @@ a {
 
 @keyframes horizon-pulse {
     0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
+        box-shadow:
+            0 0 20px rgba(255, 155, 115, 0.35),
+            0 18px 36px -8px rgba(255, 79, 163, 0.18);
         opacity: 0.85;
     }
     50% {
-        box-shadow: 0 0 34px rgba(55, 213, 232, 0.5);
+        box-shadow:
+            0 0 34px rgba(55, 213, 232, 0.5),
+            0 18px 36px -8px rgba(255, 155, 115, 0.22);
         opacity: 1;
     }
 }
