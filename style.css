@@ -134,7 +134,7 @@ a {
 }
 
 .tagline {
-    color: var(--warm-white-dim);
+    color: var(--neon-pink);
     font-size: 1.05rem;
     margin: 0.75rem 0 2.5rem;
 }
@@ -215,6 +215,34 @@ a {
         box-shadow: 0 0 34px rgba(55, 213, 232, 0.5);
         opacity: 1;
     }
+}
+
+.horizon::after {
+    /* passing light — sweeps across the horizon like distant headlights */
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -15%;
+    width: 12%;
+    height: 4px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--warm-white),
+        transparent
+    );
+    filter: blur(2px);
+    mix-blend-mode: screen;
+    opacity: 0;
+    animation: horizon-sweep 9s ease-in-out infinite;
+}
+
+@keyframes horizon-sweep {
+    0%   { left: -15%; opacity: 0; }
+    8%   { opacity: 0.9; }
+    45%  { opacity: 0.9; }
+    55%  { opacity: 0; }
+    100% { left: 105%; opacity: 0; }
 }
 
 @keyframes glow-breathe {
