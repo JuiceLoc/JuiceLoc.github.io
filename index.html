@@ -37,7 +37,45 @@
         </a>
     </section>
 
-    <div class="horizon" aria-hidden="true"></div>
+    <div class="horizon" aria-hidden="true">
+        <svg class="horizon-svg" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <radialGradient id="glow-cyan" cx="50%" cy="46%" r="70%">
+                    <stop offset="0%" stop-color="#37D5E8" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#37D5E8" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="glow-peach" cx="50%" cy="50%" r="42%">
+                    <stop offset="0%" stop-color="#FF9B73" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#FF9B73" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="glow-pink" cx="50%" cy="53%" r="26%">
+                    <stop offset="0%" stop-color="#FF4FA3" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#FF4FA3" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#37D5E8" stop-opacity="0"/>
+                    <stop offset="15%" stop-color="#37D5E8"/>
+                    <stop offset="35%" stop-color="#FF9B73"/>
+                    <stop offset="50%" stop-color="#FF4FA3"/>
+                    <stop offset="65%" stop-color="#FF9B73"/>
+                    <stop offset="85%" stop-color="#37D5E8"/>
+                    <stop offset="100%" stop-color="#37D5E8" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="reflection" cx="50%" cy="0%" r="100%">
+                    <stop offset="0%" stop-color="#FF9B73" stop-opacity="0.18"/>
+                    <stop offset="100%" stop-color="#FF9B73" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+
+            <ellipse cx="600" cy="240" rx="600" ry="220" fill="url(#glow-cyan)"/>
+            <ellipse cx="600" cy="244" rx="360" ry="220" fill="url(#glow-peach)"/>
+            <ellipse cx="600" cy="248" rx="220" ry="220" fill="url(#glow-pink)"/>
+
+            <ellipse cx="600" cy="330" rx="520" ry="140" fill="url(#reflection)"/>
+
+            <rect x="0" y="238" width="1200" height="3" fill="url(#line-grad)"/>
+        </svg>
+    </div>
 
     <section id="stack" class="stack">
         <p class="eyebrow">// stack</p>
@@ -114,7 +152,7 @@
         <p class="eyebrow">// get in touch</p>
         <h2>Let's build something.</h2>
         <div class="links">
-            <a href="mailto:alejandro.j.bejarano.999@gmail.com">Email</a>
+            <a href="mailto:alejandro.j.bejarano.999@gmail.com" class="email-link">alejandro.j.bejarano.999@gmail.com</a>
             <a href="https://github.com/JuiceLoc" target="_blank" rel="noopener">GitHub</a>
             <a href="https://www.linkedin.com/in/alejandro-bejarano-27122441a/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://juiceloc.itch.io/" target="_blank" rel="noopener">itch.io</a>

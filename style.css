@@ -172,50 +172,25 @@ a {
 /* ---------- Horizon divider (signature element) ---------- */
 .horizon {
     position: relative;
-    height: 2px;
-    margin: 3rem clamp(1.5rem, 8vw, 6rem) 5rem;
-    background: linear-gradient(
-        to right,
-        var(--ocean-neon),
-        var(--peach-sunset) 32%,
-        var(--neon-pink) 50%,
-        var(--peach-sunset) 68%,
-        var(--ocean-neon)
-    );
-    box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
-    animation: horizon-pulse 6s ease-in-out infinite;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 clamp(1.5rem, 8vw, 6rem);
 }
 
-.horizon::before {
-    /* the sunset itself — layered bands of sky color melting into the sea */
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: min(95vw, 1200px);
-    height: 480px;
-    transform: translate(-50%, -50%);
-    background:
-        radial-gradient(ellipse 40% 100% at 50% 55%, rgba(255, 79, 163, 0.28), transparent 60%),
-        radial-gradient(ellipse 55% 100% at 50% 50%, rgba(255, 155, 115, 0.32), transparent 58%),
-        radial-gradient(ellipse 95% 100% at 50% 45%, rgba(55, 213, 232, 0.16), transparent 72%);
-    filter: blur(14px);
-    pointer-events: none;
-    z-index: -1;
-    animation: glow-breathe 6s ease-in-out infinite;
+.horizon-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: horizon-pulse 6s ease-in-out infinite;
 }
 
 @keyframes horizon-pulse {
     0%, 100% {
-        box-shadow:
-            0 0 20px rgba(255, 155, 115, 0.35),
-            0 18px 36px -8px rgba(255, 79, 163, 0.18);
-        opacity: 0.85;
+        filter: drop-shadow(0 0 10px rgba(255, 155, 115, 0.3));
+        opacity: 0.9;
     }
     50% {
-        box-shadow:
-            0 0 34px rgba(55, 213, 232, 0.5),
-            0 18px 36px -8px rgba(255, 155, 115, 0.22);
+        filter: drop-shadow(0 0 18px rgba(55, 213, 232, 0.35));
         opacity: 1;
     }
 }
@@ -224,10 +199,10 @@ a {
     /* passing light — sweeps across the horizon like distant headlights */
     content: "";
     position: absolute;
-    top: -1px;
-    left: -15%;
-    width: 12%;
-    height: 4px;
+    top: 49%;
+    left: -8%;
+    width: 10%;
+    height: 3px;
     background: linear-gradient(
         to right,
         transparent,
@@ -241,22 +216,11 @@ a {
 }
 
 @keyframes horizon-sweep {
-    0%   { left: -15%; opacity: 0; }
+    0%   { left: -8%; opacity: 0; }
     8%   { opacity: 0.9; }
     45%  { opacity: 0.9; }
     55%  { opacity: 0; }
-    100% { left: 105%; opacity: 0; }
-}
-
-@keyframes glow-breathe {
-    0%, 100% {
-        opacity: 0.7;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.08);
-    }
+    100% { left: 104%; opacity: 0; }
 }
 
 
@@ -403,6 +367,10 @@ a {
 .contact .links a:hover,
 .contact .links a:focus-visible {
     color: var(--peach-sunset);
+}
+
+.email-link {
+    letter-spacing: 0.02em;
 }
 
 .fine-print {
