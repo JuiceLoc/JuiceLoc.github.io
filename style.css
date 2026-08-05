@@ -64,7 +64,7 @@ a {
 .topbar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -183,32 +183,55 @@ a {
     transform: translateY(3px);
 }
 
-/* ---------- Horizon divider (signature element) ---------- */
-.horizon {
+/* ---------- NUEVO: Sunset Vice City Divider ---------- */
+.sunset-wrapper {
     position: relative;
-    height: 5px;
-    margin: 2.5rem clamp(1.5rem, 8vw, 6rem) 4rem;
-    border-radius: 999px;
-    background: repeating-linear-gradient(
-        to right,
-        var(--ocean-neon) 0px,
-        var(--peach-sunset) 60px,
-        var(--neon-pink) 120px,
-        var(--peach-sunset) 180px,
-        var(--ocean-neon) 240px
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 0;
+    height: 180px;
+    overflow: hidden;
+}
+
+.retro-sun {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #FF9B73 0%, #FF4FA3 60%, #37D5E8 100%);
+    box-shadow: 0 0 40px rgba(255, 79, 163, 0.4);
+    /* Cortamos franjas horizontales al estilo retro outrun */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%, #000 50%,
+        transparent 50%, transparent 54%,
+        #000 54%, #000 66%,
+        transparent 66%, transparent 72%,
+        #000 72%, #000 82%,
+        transparent 82%, transparent 90%,
+        #000 90%, #000 100%
     );
-    background-size: 240px 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-    box-shadow: 0 0 24px rgba(255, 155, 115, 0.4);
-    animation: horizon-flow 7s linear infinite;
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%, #000 50%,
+        transparent 50%, transparent 54%,
+        #000 54%, #000 66%,
+        transparent 66%, transparent 72%,
+        #000 72%, #000 82%,
+        transparent 82%, transparent 90%,
+        #000 90%, #000 100%
+    );
 }
 
-@keyframes horizon-flow {
-    from { background-position: 0 0; }
-    to   { background-position: -240px 0; }
+.horizon-glow {
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--ocean-neon), var(--neon-pink), var(--peach-sunset), transparent);
+    box-shadow: 0 0 15px var(--neon-pink);
 }
-
 
 /* ---------- Eyebrow (section label) ---------- */
 .eyebrow {
@@ -265,25 +288,42 @@ a {
     color: var(--warm-white);
 }
 
-/* ---------- Work / Projects ---------- */
+/* ---------- Work / Projects (GTA VI Effect Container) ---------- */
 .work {
     padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
 }
 
-.project {
+.work-pinned-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.cards-stack {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 2.5rem;
     align-items: center;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--warm-white-faint);
-}
-
-.project:last-child {
-    border-bottom: none;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: rgba(15, 42, 63, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(55, 213, 232, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    will-change: transform, opacity;
 }
 
 .project-media {
@@ -320,10 +360,14 @@ a {
     transition: opacity 0.35s ease;
 }
 
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
 .project-link {
     display: inline-block;
     margin-top: 1.25rem;
-    margin-right: 1.5rem;
     font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--ocean-neon);
@@ -340,7 +384,7 @@ a {
 .project-info h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: 1.9rem;
+    font-size: 2.4rem;
     letter-spacing: 0.02em;
     margin: 0 0 0.5rem;
     color: var(--warm-white);
@@ -417,9 +461,8 @@ a {
     letter-spacing: 0.02em;
 }
 
-
 /* ---------- Responsive ---------- */
-@media (max-width: 760px) {
+@media (max-width: 900px) {
     .hero {
         grid-template-columns: 1fr;
         padding-top: 6rem;
@@ -434,7 +477,18 @@ a {
         gap: 1.25rem;
     }
 
-    .project {
+    /* En celulares el efecto apilado se desactiva por comodidad */
+    .cards-stack {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project.card {
+        position: relative;
         grid-template-columns: 1fr;
+        height: auto;
+        padding: 1.5rem;
     }
 }
