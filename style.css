@@ -15,7 +15,7 @@
     --warm-white-faint: rgba(255, 246, 233, 0.15);
 
     /* Type */
-    --font-display: 'Audiowide', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Space Grotesk', sans-serif;
     --font-mono: 'Space Mono', monospace;
 }
@@ -118,10 +118,10 @@ a {
 .hero h1 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2.8rem, 9vw, 6.5rem);
-    line-height: 1.02;
+    font-size: clamp(3.5rem, 12vw, 8.5rem);
+    line-height: 0.92;
     margin: 0;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
     text-shadow: 0 0 30px rgba(55, 213, 232, 0.25);
 }
 
@@ -184,17 +184,6 @@ a {
     box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
 }
 
-.horizon .sun {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--peach-sunset);
-    box-shadow: 0 0 25px 6px rgba(255, 155, 115, 0.6);
-}
 
 /* ---------- Eyebrow (section label) ---------- */
 .eyebrow {
@@ -268,7 +257,8 @@ a {
 .project-info h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
+    letter-spacing: 0.02em;
     margin: 0 0 0.5rem;
     color: var(--warm-white);
 }
@@ -315,7 +305,8 @@ a {
 .contact h2 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: 0.02em;
     margin: 0 0 2rem;
 }
 
