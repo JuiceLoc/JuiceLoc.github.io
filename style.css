@@ -172,7 +172,7 @@ a {
 /* ---------- Horizon divider (signature element) ---------- */
 .horizon {
     position: relative;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 1rem auto;
     padding: 0 clamp(1.5rem, 8vw, 6rem);
 }
@@ -180,17 +180,17 @@ a {
 .horizon-svg {
     display: block;
     width: 100%;
-    height: auto;
+    height: 14px;
     animation: horizon-pulse 6s ease-in-out infinite;
 }
 
 @keyframes horizon-pulse {
     0%, 100% {
-        filter: drop-shadow(0 0 10px rgba(255, 155, 115, 0.3));
+        filter: drop-shadow(0 0 6px rgba(255, 155, 115, 0.4));
         opacity: 0.9;
     }
     50% {
-        filter: drop-shadow(0 0 18px rgba(55, 213, 232, 0.35));
+        filter: drop-shadow(0 0 12px rgba(55, 213, 232, 0.45));
         opacity: 1;
     }
 }
@@ -199,9 +199,9 @@ a {
     /* passing light — sweeps across the horizon like distant headlights */
     content: "";
     position: absolute;
-    top: 49%;
+    top: 47%;
     left: -8%;
-    width: 10%;
+    width: 9%;
     height: 3px;
     background: linear-gradient(
         to right,
@@ -209,7 +209,7 @@ a {
         var(--warm-white),
         transparent
     );
-    filter: blur(2px);
+    filter: blur(1.5px);
     mix-blend-mode: screen;
     opacity: 0;
     animation: horizon-sweep 9s ease-in-out infinite;
@@ -284,13 +284,43 @@ a {
 }
 
 .project-media {
+    display: block;
     aspect-ratio: 16 / 10;
     border-radius: 10px;
+    overflow: hidden;
     background:
         linear-gradient(160deg, var(--deep-ocean-light), var(--deep-ocean) 60%),
         radial-gradient(circle at 30% 20%, rgba(255, 155, 115, 0.25), transparent 45%),
         radial-gradient(circle at 75% 80%, rgba(55, 213, 232, 0.25), transparent 45%);
     border: 1px solid var(--warm-white-faint);
+    transition: border-color 0.25s ease;
+}
+
+.project-media:hover {
+    border-color: var(--ocean-neon);
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ocean-neon);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: var(--peach-sunset);
+    border-color: currentColor;
 }
 
 .project-info h3 {
