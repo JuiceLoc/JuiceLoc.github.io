@@ -1,40 +1,21 @@
-// Esperamos a que todo cargue
 window.addEventListener('load', () => {
-    // Registrar ScrollTrigger de GSAP
     gsap.registerPlugin(ScrollTrigger);
 
-    // Solo activamos el efecto zoom en pantallas grandes (Escritorio / Laptops)
+    // Animación de Zoom-out al estilo Rockstar Games para la portada inicial
     ScrollTrigger.matchMedia({
-        "(min-width: 901px)": function() {
-            const cards = gsap.utils.toArray('.project.card');
-
-            // Asignar z-index decreciente para apilarlas correctamente
-            cards.forEach((card, i) => {
-                gsap.set(card, { zIndex: cards.length - i });
-            });
-
-            // Crear timeline de animación vinculada al scroll
-            const tl = gsap.timeline({
+        "(min-width: 768px)": function() {
+            gsap.to('.hero-screen', {
+                scale: 0.65,            // Se aleja en el eje Z
+                opacity: 0,             // Se desvanece
+                filter: 'blur(10px)',   // Desenfoque de cámara en movimiento
+                ease: 'power1.in',
                 scrollTrigger: {
-                    trigger: '.work-pinned-wrapper',
-                    start: 'top top+=80',
-                    end: () => `+=${cards.length * 100}%`,
-                    scrub: 1,
-                    pin: true,
-                    anticipatePin: 1
-                }
-            });
-
-            // Animación de zoom hacia atrás y desvanecimiento
-            cards.forEach((card, index) => {
-                if (index < cards.length - 1) {
-                    tl.to(card, {
-                        scale: 0.75,         // Se encoge simulando alejarse (profundidad)
-                        opacity: 0,          // Se desvanece
-                        filter: 'blur(8px)', // Efecto adicional de desenfoque al alejarse
-                        duration: 1,
-                        ease: 'power1.inOut'
-                    });
+                    trigger: '.hero-pinned-wrapper',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5,         // Animación fluida atada a la rueda del ratón
+                    pin: true,          // Mantiene fija la portada mientras hace la animación
+                    pinSpacing: false   // Permite que el resto del sitio suba naturalmente
                 }
             });
         }
