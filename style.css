@@ -330,15 +330,9 @@ a {
     box-shadow: 0 2px 8px rgba(255, 155, 115, 0.3);
 }
 
-/* ---------- Stack (Idea 2 Implementada) ---------- */
+/* ---------- Stack ---------- */
 .stack {
     padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
-}
-
-.stack-count {
-    color: var(--neon-pink);
-    font-size: 0.75rem;
-    opacity: 0.85;
 }
 
 .tag-grid {
@@ -414,7 +408,7 @@ a {
     border-radius: 20px;
     background: linear-gradient(135deg, var(--ocean-neon), var(--neon-pink));
     filter: blur(30px);
-    opacity: 0; /* 0% visible */
+    opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
     z-index: 0;
@@ -461,7 +455,7 @@ a {
     transition: opacity 0.35s ease;
 }
 
-/* Idea 1: Overlay CRT Scanlines sobre el Video */
+/* Overlay CRT Scanlines sobre el Video */
 .scanlines {
     position: absolute;
     inset: 0;
