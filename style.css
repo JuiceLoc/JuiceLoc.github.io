@@ -189,17 +189,24 @@ a {
     height: 5px;
     margin: 2.5rem clamp(1.5rem, 8vw, 6rem) 4rem;
     border-radius: 999px;
-    background: linear-gradient(
+    background: repeating-linear-gradient(
         to right,
-        transparent,
-        var(--ocean-neon) 12%,
-        var(--peach-sunset) 35%,
-        var(--neon-pink) 50%,
-        var(--peach-sunset) 65%,
-        var(--ocean-neon) 88%,
-        transparent
+        var(--ocean-neon) 0px,
+        var(--peach-sunset) 60px,
+        var(--neon-pink) 120px,
+        var(--peach-sunset) 180px,
+        var(--ocean-neon) 240px
     );
+    background-size: 240px 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
     box-shadow: 0 0 24px rgba(255, 155, 115, 0.4);
+    animation: horizon-flow 7s linear infinite;
+}
+
+@keyframes horizon-flow {
+    from { background-position: 0 0; }
+    to   { background-position: -240px 0; }
 }
 
 
