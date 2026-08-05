@@ -14,7 +14,7 @@
 
     <div class="grain"></div>
     
-    <!-- Luces Neón Reubicadas (Vice City Glows) -->
+    <!-- Luces Neón de Fondo (Vice City Glows) -->
     <div class="ambient-light light-cyan"></div>
     <div class="ambient-light light-pink"></div>
 
@@ -46,7 +46,7 @@
                 </a>
             </div>
 
-            <!-- Columna Derecha: About Me -->
+            <!-- Columna Derecha: About Me (Posición Original) -->
             <div class="hero-about" id="about">
                 <p class="eyebrow">// about me</p>
                 <p class="about-text">
@@ -63,35 +63,37 @@
             <!-- Sol Retro y Mar del Atardecer -->
             <div class="sunset-container" aria-hidden="true">
                 <div class="retro-sun"></div>
-                <!-- Linea del horizonte y mar neón -->
                 <div class="horizon-glow"></div>
                 <div class="ocean-surface"></div>
             </div>
         </section>
     </div>
 
-    <!-- Contenido que sube en primer plano -->
+    <!-- Contenido en primer plano -->
     <main class="main-content">
 
+        <!-- Sección Stack Mejorada -->
         <section id="stack" class="stack">
-            <p class="eyebrow">// stack</p>
+            <div class="stack-header">
+                <p class="eyebrow">// tech_stack <span class="stack-count">[8_loaded]</span></p>
+            </div>
             <ul class="tag-grid">
-                <li class="tag">Unity</li>
-                <li class="tag">C#</li>
-                <li class="tag">Object-Oriented Programming</li>
-                <li class="tag">Rigidbody & Physics</li>
-                <li class="tag">Procedural Generation</li>
-                <li class="tag">Gameplay Systems</li>
-                <li class="tag">Git</li>
-                <li class="tag">Game Jams</li>
+                <li class="tag"><span class="tag-prefix">></span> Unity</li>
+                <li class="tag"><span class="tag-prefix">></span> C#</li>
+                <li class="tag"><span class="tag-prefix">></span> Object-Oriented Programming</li>
+                <li class="tag"><span class="tag-prefix">></span> Rigidbody & Physics</li>
+                <li class="tag"><span class="tag-prefix">></span> Procedural Generation</li>
+                <li class="tag"><span class="tag-prefix">></span> Gameplay Systems</li>
+                <li class="tag"><span class="tag-prefix">></span> Git</li>
+                <li class="tag"><span class="tag-prefix">></span> Game Jams</li>
             </ul>
         </section>
 
+        <!-- Sección Proyectos con Luces y Scanlines -->
         <section id="work" class="work">
             <p class="eyebrow">// selected work</p>
 
             <article class="project">
-                <!-- Envoltorio para agregar la luz difuminada detrás del poster -->
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
                     <a class="project-media"
@@ -102,6 +104,7 @@
                         <video loop muted playsinline>
                             <source src="down-the-drain-gameplay.mp4" type="video/mp4">
                         </video>
+                        <div class="scanlines"></div>
                     </a>
                 </div>
                 <div class="project-info">
@@ -132,7 +135,9 @@
             <article class="project">
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
-                    <div class="project-media"></div>
+                    <div class="project-media">
+                        <div class="scanlines"></div>
+                    </div>
                 </div>
                 <div class="project-info">
                     <h3>Project Name</h3>
@@ -152,7 +157,9 @@
             <article class="project">
                 <div class="media-wrapper">
                     <div class="poster-glow"></div>
-                    <div class="project-media"></div>
+                    <div class="project-media">
+                        <div class="scanlines"></div>
+                    </div>
                 </div>
                 <div class="project-info">
                     <h3>Project Name</h3>
