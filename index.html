@@ -72,12 +72,12 @@
         <p class="eyebrow">// selected work</p>
 
         <article class="project">
-            <a class="project-media" href="https://kath-4.itch.io/down-the-drain" target="_blank" rel="noopener">
-                <video
-                    loop muted playsinline
-                    poster="down-the-drain-cover.png"
-                    onmouseenter="this.play()"
-                    onmouseleave="this.pause(); this.currentTime = 0;">
+            <a class="project-media"
+               href="https://kath-4.itch.io/down-the-drain" target="_blank" rel="noopener"
+               onmouseenter="this.querySelector('video').play(); this.querySelector('img').style.opacity=0;"
+               onmouseleave="const v=this.querySelector('video'); v.pause(); v.currentTime=0; this.querySelector('img').style.opacity=1;">
+                <img src="down-the-drain-cover.png" alt="Down The Drain cover art">
+                <video loop muted playsinline>
                     <source src="down-the-drain-gameplay.mp4" type="video/mp4">
                 </video>
             </a>

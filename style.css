@@ -186,16 +186,20 @@ a {
 /* ---------- Horizon divider (signature element) ---------- */
 .horizon {
     position: relative;
-    height: 3px;
-    margin: 2rem clamp(1.5rem, 8vw, 6rem) 4rem;
+    height: 5px;
+    margin: 2.5rem clamp(1.5rem, 8vw, 6rem) 4rem;
+    border-radius: 999px;
     background: linear-gradient(
         to right,
         transparent,
+        var(--ocean-neon) 12%,
         var(--peach-sunset) 35%,
-        var(--ocean-neon) 65%,
+        var(--neon-pink) 50%,
+        var(--peach-sunset) 65%,
+        var(--ocean-neon) 88%,
         transparent
     );
-    box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
+    box-shadow: 0 0 24px rgba(255, 155, 115, 0.4);
 }
 
 
@@ -277,6 +281,7 @@ a {
 
 .project-media {
     display: block;
+    position: relative;
     aspect-ratio: 16 / 10;
     border-radius: 10px;
     overflow: hidden;
@@ -294,10 +299,18 @@ a {
 
 .project-media img,
 .project-media video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.project-media img {
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.35s ease;
 }
 
 .project-link {
