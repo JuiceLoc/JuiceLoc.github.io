@@ -21,15 +21,15 @@ window.addEventListener('load', () => {
     });
 });
 
-// Función para copiar correo con mensaje temporal
+// Lógica de copiar correo con feedback emergente
 function copyEmail() {
     const email = document.getElementById('emailText').innerText;
-    const tooltip = document.getElementById('copyTooltip');
+    const toast = document.getElementById('copyToast');
 
     navigator.clipboard.writeText(email).then(() => {
-        tooltip.innerText = 'Copied!';
+        toast.classList.add('show');
         setTimeout(() => {
-            tooltip.innerText = 'Copy';
+            toast.classList.remove('show');
         }, 2000);
     }).catch(err => {
         console.error('Failed to copy: ', err);

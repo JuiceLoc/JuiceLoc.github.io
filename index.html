@@ -76,7 +76,7 @@
     <!-- Contenido en primer plano -->
     <main class="main-content">
 
-        <!-- Sección Stack Limpia (Sin guion en Object Oriented Programming) -->
+        <!-- Sección Stack Limpia -->
         <section id="stack" class="stack">
             <p class="eyebrow">// tech stack</p>
             <ul class="tag-grid">
@@ -182,19 +182,22 @@
             </article>
         </section>
 
-        <!-- Footer / Contacto con Botón Copiar Email e Iconos SVG -->
+        <!-- Footer / Contacto con diseño de correo minimalista -->
         <footer id="contact" class="contact">
             <p class="eyebrow">// get in touch</p>
             <h2>Let's build something.</h2>
 
-            <!-- Botón Copiar Email -->
-            <div class="email-wrapper">
-                <button id="copyEmailBtn" class="email-btn" onclick="copyEmail()">
-                    <span id="emailText">alejandro.j.bejarano.999@gmail.com</span>
-                    <span class="copy-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        <span id="copyTooltip">Copy</span>
-                    </span>
+            <!-- Correo Minimalista con Pop-up al Copiar -->
+            <div class="email-container">
+                <a href="mailto:alejandro.j.bejarano.999@gmail.com" id="emailText" class="email-link">
+                    alejandro.j.bejarano.999@gmail.com
+                </a>
+                <button id="copyBtn" class="copy-icon-btn" onclick="copyEmail()" title="Copy email address" aria-label="Copy email address">
+                    <svg class="copy-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span id="copyToast" class="copy-toast">Copied!</span>
                 </button>
             </div>
 
