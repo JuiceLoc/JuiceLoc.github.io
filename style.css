@@ -172,16 +172,60 @@ a {
 /* ---------- Horizon divider (signature element) ---------- */
 .horizon {
     position: relative;
-    height: 1px;
-    margin: 2rem clamp(1.5rem, 8vw, 6rem) 4rem;
+    height: 2px;
+    margin: 3rem clamp(1.5rem, 8vw, 6rem) 5rem;
     background: linear-gradient(
         to right,
         transparent,
-        var(--peach-sunset) 35%,
-        var(--ocean-neon) 65%,
+        var(--peach-sunset) 30%,
+        var(--ocean-neon) 70%,
         transparent
     );
     box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
+    animation: horizon-pulse 6s ease-in-out infinite;
+}
+
+.horizon::before {
+    /* atmospheric glow — the "sun" reimagined as soft light, not a hard dot */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(70vw, 900px);
+    height: 260px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        ellipse 50% 100% at 50% 50%,
+        rgba(255, 155, 115, 0.22),
+        rgba(255, 79, 163, 0.1) 45%,
+        transparent 75%
+    );
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: -1;
+    animation: glow-breathe 6s ease-in-out infinite;
+}
+
+@keyframes horizon-pulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 155, 115, 0.35);
+        opacity: 0.85;
+    }
+    50% {
+        box-shadow: 0 0 34px rgba(55, 213, 232, 0.5);
+        opacity: 1;
+    }
+}
+
+@keyframes glow-breathe {
+    0%, 100% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
 }
 
 
