@@ -194,6 +194,25 @@ a {
     margin: 0 0 2rem;
 }
 
+/* ---------- About ---------- */
+.about {
+    padding: 1rem clamp(1.5rem, 8vw, 6rem) 4rem;
+}
+
+.about-text {
+    max-width: 640px;
+    color: var(--warm-white-dim);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.about-text em {
+    color: var(--warm-white);
+    font-style: normal;
+    border-bottom: 1px solid var(--peach-sunset);
+}
+
 /* ---------- Stack ---------- */
 .stack {
     padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
