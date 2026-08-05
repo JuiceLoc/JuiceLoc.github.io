@@ -25,33 +25,34 @@
     </header>
 
     <section class="hero">
-        <p class="greeting">GAMEPLAY PROGRAMMER</p>
-        <h1>
-            ALEJANDRO<br>
-            BEJARANO
-        </h1>
-        <p class="tagline">
-            And this is what I build.
-        </p>
-        <a href="#work" class="button">
-            See the work <span class="arrow">↓</span>
-        </a>
+        <div class="hero-main">
+            <p class="greeting">GAMEPLAY PROGRAMMER</p>
+            <h1>
+                ALEJANDRO<br>
+                BEJARANO
+            </h1>
+            <p class="tagline">
+                And this is what I build.
+            </p>
+            <a href="#work" class="button">
+                See the work <span class="arrow">↓</span>
+            </a>
+        </div>
+        <div class="hero-about" id="about">
+            <p class="eyebrow">// about</p>
+            <p class="about-text">
+                I got into programming through Generation Colombia's Unity
+                bootcamp, and building <em>Down The Drain</em> with a team of
+                five is what convinced me this is exactly where I want to be.
+                I like the moment a rough prototype starts to feel right —
+                when a dash has the correct weight, when a camera shake sells
+                a hit. That's the part of gameplay programming I care about
+                most: not just making it work, but making it feel good.
+            </p>
+        </div>
     </section>
 
     <div class="horizon" aria-hidden="true"></div>
-
-    <section id="about" class="about">
-        <p class="eyebrow">// about</p>
-        <p class="about-text">
-            I got into programming through Generation Colombia's Unity
-            bootcamp, and building <em>Down The Drain</em> with a team of
-            five is what convinced me this is exactly where I want to be.
-            I like the moment a rough prototype starts to feel right —
-            when a dash has the correct weight, when a camera shake sells
-            a hit. That's the part of gameplay programming I care about
-            most: not just making it work, but making it feel good.
-        </p>
-    </section>
 
     <section id="stack" class="stack">
         <p class="eyebrow">// stack</p>
@@ -72,7 +73,11 @@
 
         <article class="project">
             <a class="project-media" href="https://kath-4.itch.io/down-the-drain" target="_blank" rel="noopener">
-                <video autoplay loop muted playsinline poster="down-the-drain-cover.png">
+                <video
+                    loop muted playsinline
+                    poster="down-the-drain-cover.png"
+                    onmouseenter="this.play()"
+                    onmouseleave="this.pause(); this.currentTime = 0;">
                     <source src="down-the-drain-gameplay.mp4" type="video/mp4">
                 </video>
             </a>
