@@ -83,7 +83,7 @@ a {
     * { animation: none !important; transition: none !important; }
 }
 
-/* ---------- Topbar ---------- */
+/* ---------- Topbar con Línea Neón Animada ---------- */
 .topbar {
     position: fixed;
     top: 0;
@@ -112,11 +112,25 @@ a {
 }
 
 .topbar nav a {
+    position: relative;
     font-family: var(--font-mono);
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     color: var(--warm-white-dim);
+    padding-bottom: 4px;
     transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.topbar nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--peach-sunset);
+    box-shadow: 0 0 8px var(--peach-sunset);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .topbar nav a:hover,
@@ -125,7 +139,12 @@ a {
     text-shadow: 0 0 12px rgba(255, 155, 115, 0.6);
 }
 
-/* ---------- Hero (2 Columnas Original) ---------- */
+.topbar nav a:hover::after,
+.topbar nav a:focus-visible::after {
+    width: 100%;
+}
+
+/* ---------- Hero ---------- */
 .hero-pinned-wrapper {
     position: relative;
     width: 100%;
@@ -375,7 +394,7 @@ a {
     color: var(--peach-sunset);
 }
 
-/* ---------- Work / Projects (Con Luces & CRT Scanlines) ---------- */
+/* ---------- Work / Projects ---------- */
 .work {
     padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
     display: flex;
@@ -401,7 +420,6 @@ a {
     width: 100%;
 }
 
-/* Luz Trasera APAGADA por defecto */
 .poster-glow {
     position: absolute;
     inset: -12px;
@@ -414,7 +432,6 @@ a {
     z-index: 0;
 }
 
-/* Encendido neón en HOVER */
 .media-wrapper:hover .poster-glow {
     opacity: 0.75;
     transform: scale(1.02);
@@ -455,7 +472,7 @@ a {
     transition: opacity 0.35s ease;
 }
 
-/* Overlay CRT Scanlines sobre el Video */
+/* Overlay CRT Scanlines */
 .scanlines {
     position: absolute;
     inset: 0;
@@ -475,6 +492,30 @@ a {
 
 .media-wrapper:hover .scanlines {
     opacity: 1;
+}
+
+/* ESTILO PLACEHOLDER PARA PROYECTOS EN DESARROLLO */
+.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(15, 42, 63, 0.8), var(--deep-ocean));
+}
+
+.placeholder-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--ocean-neon);
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    text-shadow: 0 0 10px rgba(55, 213, 232, 0.4);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.media-wrapper:hover .placeholder-text {
+    opacity: 1;
+    color: var(--peach-sunset);
 }
 
 .project-links {
@@ -522,6 +563,7 @@ a {
     margin: 0 0 1.25rem;
 }
 
+/* JERARQUÍA REFINADA EN PROYECT TAGS */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -530,12 +572,18 @@ a {
 
 .project-tags span {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(55, 213, 232, 0.1);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    background: rgba(15, 42, 63, 0.5);
+    color: var(--warm-white-dim);
+    border: 1px solid var(--warm-white-faint);
+    transition: all 0.25s ease;
+}
+
+.project:hover .project-tags span {
+    border-color: rgba(55, 213, 232, 0.3);
     color: var(--ocean-neon);
-    border: 1px solid rgba(55, 213, 232, 0.2);
 }
 
 /* ---------- Contact / Footer ---------- */
