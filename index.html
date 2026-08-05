@@ -14,7 +14,7 @@
 
     <div class="grain"></div>
     
-    <!-- Luces Neón de Fondo (Vice City Glows) -->
+    <!-- Luces Neón Reubicadas (Vice City Glows) -->
     <div class="ambient-light light-cyan"></div>
     <div class="ambient-light light-pink"></div>
 
@@ -46,7 +46,7 @@
                 </a>
             </div>
 
-            <!-- Columna Derecha: About Me (Posición Original) -->
+            <!-- Columna Derecha: About Me -->
             <div class="hero-about" id="about">
                 <p class="eyebrow">// about me</p>
                 <p class="about-text">
@@ -60,10 +60,12 @@
                 </p>
             </div>
 
-            <!-- Sol Retro al borde inferior -->
+            <!-- Sol Retro y Mar del Atardecer -->
             <div class="sunset-container" aria-hidden="true">
                 <div class="retro-sun"></div>
+                <!-- Linea del horizonte y mar neón -->
                 <div class="horizon-glow"></div>
+                <div class="ocean-surface"></div>
             </div>
         </section>
     </div>
@@ -89,15 +91,19 @@
             <p class="eyebrow">// selected work</p>
 
             <article class="project">
-                <a class="project-media"
-                   href="https://kath-4.itch.io/down-the-drain" target="_blank" rel="noopener"
-                   onmouseenter="this.querySelector('video').play(); this.querySelector('img').style.opacity=0;"
-                   onmouseleave="const v=this.querySelector('video'); v.pause(); v.currentTime=0; this.querySelector('img').style.opacity=1;">
-                    <img src="down-the-drain-cover.png" alt="Down The Drain cover art">
-                    <video loop muted playsinline>
-                        <source src="down-the-drain-gameplay.mp4" type="video/mp4">
-                    </video>
-                </a>
+                <!-- Envoltorio para agregar la luz difuminada detrás del poster -->
+                <div class="media-wrapper">
+                    <div class="poster-glow"></div>
+                    <a class="project-media"
+                       href="https://kath-4.itch.io/down-the-drain" target="_blank" rel="noopener"
+                       onmouseenter="this.querySelector('video').play(); this.querySelector('img').style.opacity=0;"
+                       onmouseleave="const v=this.querySelector('video'); v.pause(); v.currentTime=0; this.querySelector('img').style.opacity=1;">
+                        <img src="down-the-drain-cover.png" alt="Down The Drain cover art">
+                        <video loop muted playsinline>
+                            <source src="down-the-drain-gameplay.mp4" type="video/mp4">
+                        </video>
+                    </a>
+                </div>
                 <div class="project-info">
                     <h3>Down The Drain</h3>
                     <p class="role">Gameplay Programmer — Team of 5 · Generation Colombia Game Jam</p>
@@ -124,7 +130,10 @@
             </article>
 
             <article class="project">
-                <div class="project-media"></div>
+                <div class="media-wrapper">
+                    <div class="poster-glow"></div>
+                    <div class="project-media"></div>
+                </div>
                 <div class="project-info">
                     <h3>Project Name</h3>
                     <p class="role">Gameplay Programmer — AI & Tools</p>
@@ -141,7 +150,10 @@
             </article>
 
             <article class="project">
-                <div class="project-media"></div>
+                <div class="media-wrapper">
+                    <div class="poster-glow"></div>
+                    <div class="project-media"></div>
+                </div>
                 <div class="project-info">
                     <h3>Project Name</h3>
                     <p class="role">Gameplay Programmer — Prototype</p>
