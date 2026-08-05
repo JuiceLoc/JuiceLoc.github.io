@@ -1,3 +1,4 @@
+// GSAP ScrollTrigger
 window.addEventListener('load', () => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -20,3 +21,18 @@ window.addEventListener('load', () => {
         }
     });
 });
+
+// Función para copiar correo al portapapeles
+function copyEmail() {
+    const email = document.getElementById('emailText').innerText;
+    const tooltip = document.getElementById('copyTooltip');
+
+    navigator.clipboard.writeText(email).then(() => {
+        tooltip.innerText = 'Copied!';
+        setTimeout(() => {
+            tooltip.innerText = 'Copy';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
