@@ -1,105 +1,605 @@
-/* ---------- 1. Status Dot "Available for Work" ---------- */
-.logo-wrapper {
+/* ============================================
+   Ocean Drive at Night — Alejandro Bejarano
+   Vice City-inspired portfolio theme
+   ============================================ */
+
+:root {
+    /* Palette */
+    --deep-ocean: #081826;
+    --deep-ocean-light: #0F2A3F;
+    --ocean-neon: #37D5E8;
+    --neon-pink: #FF4FA3;
+    --peach-sunset: #FF9B73;
+    --warm-white: #FFF6E9;
+    --warm-white-dim: rgba(255, 246, 233, 0.6);
+    --warm-white-faint: rgba(255, 246, 233, 0.15);
+
+    /* Fonts */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--deep-ocean);
+    color: var(--warm-white);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Film Grain */
+.grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Luces de Ambiente */
+.ambient-light {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.light-cyan {
+    top: -5%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    background: rgba(55, 213, 232, 0.18);
+}
+
+.light-pink {
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 450px;
+    background: rgba(255, 79, 163, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    backdrop-filter: blur(8px);
+    background: linear-gradient(to bottom, rgba(8, 24, 38, 0.85), transparent);
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--ocean-neon);
+    text-shadow: 0 0 10px rgba(55, 213, 232, 0.4);
+}
+
+.topbar nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.topbar nav a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--warm-white-dim);
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus-visible {
+    color: var(--peach-sunset);
+    text-shadow: 0 0 12px rgba(255, 155, 115, 0.6);
+}
+
+/* ---------- Hero (2 Columnas Original) ---------- */
+.hero-pinned-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: 0 clamp(1.5rem, 8vw, 6rem);
+    position: relative;
+    overflow: hidden;
+    will-change: transform, opacity, filter;
+}
+
+.hero-main {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.hero-about {
+    padding-top: 0.5rem;
+    z-index: 2;
+}
+
+.hero-about .about-text {
+    max-width: 480px;
+}
+
+.greeting {
+    font-family: var(--font-mono);
+    color: var(--ocean-neon);
+    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+    text-shadow: 0 0 10px rgba(55, 213, 232, 0.3);
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 12vw, 8.5rem);
+    line-height: 0.92;
+    margin: 0;
+    letter-spacing: 0.03em;
+    text-shadow: 0 0 35px rgba(55, 213, 232, 0.35);
+}
+
+.tagline {
+    color: var(--neon-pink);
+    font-size: 1.05rem;
+    margin: 0.75rem 0 2.5rem;
+    text-shadow: 0 0 12px rgba(255, 79, 163, 0.4);
+}
+
+.button {
+    display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--ocean-neon);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--ocean-neon);
-    animation: statusPulse 2s infinite ease-in-out;
-}
-
-@keyframes statusPulse {
-    0% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.25); box-shadow: 0 0 12px var(--ocean-neon); }
-    100% { opacity: 0.3; transform: scale(0.8); }
-}
-
-/* ---------- 2. Botón Copiar Email ---------- */
-.email-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2.5rem;
-}
-
-.email-btn {
-    background: rgba(15, 42, 63, 0.4);
-    border: 1px solid var(--warm-white-faint);
-    color: var(--warm-white-dim);
+    width: fit-content;
     font-family: var(--font-mono);
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.25s ease;
-}
-
-.email-btn:hover {
-    border-color: var(--peach-sunset);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 0.9rem 1.6rem;
+    border: 1px solid var(--ocean-neon);
+    border-radius: 999px;
     color: var(--warm-white);
-    background: rgba(255, 155, 115, 0.08);
-    box-shadow: 0 0 20px rgba(255, 155, 115, 0.2);
+    background: rgba(8, 24, 38, 0.4);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
 }
 
-.copy-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.75rem;
-    color: var(--ocean-neon);
-    background: rgba(55, 213, 232, 0.1);
-    padding: 0.25rem 0.6rem;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-}
-
-.email-btn:hover .copy-badge {
+.button:hover,
+.button:focus-visible {
     background: var(--ocean-neon);
     color: var(--deep-ocean);
+    box-shadow: 0 0 24px rgba(55, 213, 232, 0.6);
 }
 
-/* ---------- 4. Redes con Iconos SVG ---------- */
-.social-links {
+.button .arrow {
+    transition: transform 0.3s ease;
+}
+
+.button:hover .arrow {
+    transform: translateY(3px);
+}
+
+/* ---------- Sunset Atardecer + Mar ---------- */
+.sunset-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.retro-sun {
+    width: clamp(280px, 45vw, 550px);
+    height: clamp(140px, 22.5vw, 275px);
+    border-radius: 500px 500px 0 0;
+    background: linear-gradient(to bottom, #FF9B73 0%, #FF4FA3 50%, #37D5E8 100%);
+    box-shadow: 0 0 90px rgba(255, 79, 163, 0.55);
+    filter: blur(0.5px);
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%, #000 40%,
+        transparent 40%, transparent 45%,
+        #000 45%, #000 58%,
+        transparent 58%, transparent 64%,
+        #000 64%, #000 78%,
+        transparent 78%, transparent 86%,
+        #000 86%, #000 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%, #000 40%,
+        transparent 40%, transparent 45%,
+        #000 45%, #000 58%,
+        transparent 58%, transparent 64%,
+        #000 64%, #000 78%,
+        transparent 78%, transparent 86%,
+        #000 86%, #000 100%
+    );
+}
+
+.horizon-glow {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent 5%, var(--ocean-neon), var(--neon-pink), var(--peach-sunset), transparent 95%);
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.ocean-surface {
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom, rgba(55, 213, 232, 0.25), rgba(255, 79, 163, 0.1) 60%, transparent);
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(255, 246, 233, 0.08) 3px,
+        rgba(255, 246, 233, 0.08) 5px
+    );
+    filter: blur(1px);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(8, 24, 38, 0.95), var(--deep-ocean) 150px);
+    padding-top: 6rem;
+}
+
+.main-content::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(8, 24, 38, 0.95));
+    pointer-events: none;
+}
+
+/* ---------- Eyebrow & About ---------- */
+.eyebrow {
+    font-family: var(--font-mono);
+    color: var(--ocean-neon);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    margin: 0 0 2rem;
+    text-shadow: 0 0 10px rgba(55, 213, 232, 0.3);
+}
+
+.about-text {
+    color: var(--warm-white-dim);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.about-text em {
+    color: var(--warm-white);
+    font-style: normal;
+    border-bottom: 2px solid var(--peach-sunset);
+    box-shadow: 0 2px 8px rgba(255, 155, 115, 0.3);
+}
+
+/* ---------- Stack ---------- */
+.stack {
+    padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
+}
+
+.tag-grid {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+}
+
+.tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid var(--warm-white-faint);
+    border-radius: 6px;
+    color: var(--warm-white-dim);
+    background: rgba(15, 42, 63, 0.35);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tag-prefix {
+    color: var(--ocean-neon);
+    margin-right: 0.35rem;
+    opacity: 0.6;
+    transition: opacity 0.25s ease;
+}
+
+.tag:hover {
+    border-color: var(--neon-pink);
+    color: var(--warm-white);
+    background: rgba(255, 79, 163, 0.1);
+    box-shadow: 0 0 18px rgba(255, 79, 163, 0.4);
+    transform: translateY(-2px);
+}
+
+.tag:hover .tag-prefix {
+    opacity: 1;
+    color: var(--peach-sunset);
+}
+
+/* ---------- Work / Projects (Con Luces & CRT Scanlines) ---------- */
+.work {
+    padding: 2rem clamp(1.5rem, 8vw, 6rem) 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--warm-white-faint);
+}
+
+.project:last-child {
+    border-bottom: none;
+}
+
+.media-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Luz Trasera APAGADA por defecto */
+.poster-glow {
+    position: absolute;
+    inset: -12px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--ocean-neon), var(--neon-pink));
+    filter: blur(30px);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
+    z-index: 0;
+}
+
+/* Encendido neón en HOVER */
+.media-wrapper:hover .poster-glow {
+    opacity: 0.75;
+    transform: scale(1.02);
+}
+
+.project-media {
+    display: block;
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 16 / 10;
+    border-radius: 10px;
+    overflow: hidden;
+    background:
+        linear-gradient(160deg, var(--deep-ocean-light), var(--deep-ocean) 60%),
+        radial-gradient(circle at 30% 20%, rgba(255, 155, 115, 0.25), transparent 45%),
+        radial-gradient(circle at 75% 80%, rgba(55, 213, 232, 0.25), transparent 45%);
+    border: 1px solid var(--warm-white-faint);
+    transition: border-color 0.3s ease;
+}
+
+.project-media:hover {
+    border-color: var(--ocean-neon);
+}
+
+.project-media img,
+.project-media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-media img {
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+}
+
+/* Overlay CRT Scanlines sobre el Video */
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.35) 50%,
+        rgba(0, 0, 0, 0.35)
+    );
+    background-size: 100% 4px;
+    transition: opacity 0.35s ease;
+}
+
+.media-wrapper:hover .scanlines {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ocean-neon);
+    border-bottom: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+    color: var(--peach-sunset);
+    border-color: currentColor;
+    text-shadow: 0 0 8px rgba(255, 155, 115, 0.5);
+}
+
+.project-info h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.2rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5rem;
+    color: var(--warm-white);
+}
+
+.project-info .role {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--neon-pink);
+    margin: 0 0 1rem;
+    text-shadow: 0 0 8px rgba(255, 79, 163, 0.3);
+}
+
+.project-info .desc {
+    color: var(--warm-white-dim);
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(55, 213, 232, 0.1);
+    color: var(--ocean-neon);
+    border: 1px solid rgba(55, 213, 232, 0.2);
+}
+
+/* ---------- Contact / Footer ---------- */
+.contact {
+    padding: 5rem clamp(1.5rem, 8vw, 6rem) 4rem;
+    text-align: center;
+    border-top: 1px solid var(--warm-white-faint);
+}
+
+.contact .eyebrow {
+    display: block;
+}
+
+.contact h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: 0.02em;
+    margin: 0 0 2rem;
+    text-shadow: 0 0 20px rgba(255, 246, 233, 0.2);
+}
+
+.contact .links {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.25rem;
-}
-
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 1.75rem;
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact .links a {
     color: var(--warm-white-dim);
-    padding: 0.6rem 1.1rem;
-    border-radius: 6px;
-    background: rgba(15, 42, 63, 0.3);
-    border: 1px solid var(--warm-white-faint);
     transition: all 0.25s ease;
 }
 
-.social-btn svg {
-    transition: transform 0.25s ease;
-}
-
-.social-btn:hover {
+.contact .links a:hover,
+.contact .links a:focus-visible {
     color: var(--peach-sunset);
-    border-color: var(--peach-sunset);
-    background: rgba(255, 155, 115, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(255, 155, 115, 0.25);
+    text-shadow: 0 0 10px rgba(255, 155, 115, 0.6);
 }
 
-.social-btn:hover svg {
-    transform: scale(1.1);
+.email-link {
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero-about {
+        padding-top: 1rem;
+    }
+
+    .topbar nav {
+        gap: 1.25rem;
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+    }
 }
